@@ -7,11 +7,7 @@ imagepath =os.path.join('','data','human4.jpeg')
 
 img= cv2.imread(imagepath)
 print(img.shape)
-
-#convert the image to gray scale
-gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-print(gray_image.shape)
-
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 #load the classifier Haar Cascade 
 face_classifier = cv2.CascadeClassifier(
@@ -19,7 +15,7 @@ face_classifier = cv2.CascadeClassifier(
 )
 
 face = face_classifier.detectMultiScale(
-    gray_image, scaleFactor= 1.3, minNeighbors=2
+    img, scaleFactor= 1.04, minNeighbors=1
 )
 
 #draw a bounding box
@@ -30,5 +26,6 @@ for(x, y, w, h) in face:
 cv2.imshow('Detected face', img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
 
 
