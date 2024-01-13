@@ -22,7 +22,6 @@ face = face_classifier.detectMultiScale(
     gray_image, scaleFactor= 1.3, minNeighbors=2
 )
 
-
 #draw a bounding box
 for(x, y, w, h) in face:
     cv2.rectangle(img,(x,y),(x+w,y+h), (0, 255, 0), 2)
